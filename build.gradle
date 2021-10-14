@@ -1,0 +1,40 @@
+plugins {
+    id 'io.franzbecker.gradle-lombok' version '5.0.0'
+    id 'java'
+}
+
+group 'com.mokhtarabadi.secureapi'
+version '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // encryption & hashing
+    implementation 'commons-codec:commons-codec:1.15'
+
+    // web server
+    implementation 'com.sparkjava:spark-core:2.9.3'
+
+    // logging
+    implementation 'org.slf4j:slf4j-simple:1.7.32'
+
+    // json parser
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.13.0'
+
+    // testing
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
